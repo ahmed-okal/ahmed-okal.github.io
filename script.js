@@ -55,14 +55,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const projectCards = document.querySelectorAll('.project-card');
         
         projectCards.forEach(card => {
+            const img = card.querySelector('.project-img');
+            
             card.addEventListener('mouseenter', () => {
                 gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
-                gsap.to(card.querySelector('.project-img-placeholder'), { scale: 1.05, duration: 0.5 });
+                if(img) gsap.to(img, { scale: 1.05, duration: 0.5 });
             });
             
             card.addEventListener('mouseleave', () => {
                 gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
-                gsap.to(card.querySelector('.project-img-placeholder'), { scale: 1, duration: 0.5 });
+                if(img) gsap.to(img, { scale: 1, duration: 0.5 });
             });
         });
 
@@ -107,6 +109,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Glitch Effect logic (Simple random character replacement usually, but for simple CSS we used animation. 
-    // Here allows adding more complex js glitch only on hover if requested, keeping it simple for now)
+    // --- Interactive Background Script ---
+    const canvas = document.getElementById('bg-canvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        const particleCount = 60; // Adjust for density
+        const connectionDistance = 120;
+        const mouseDistance = 200;
+
+        let mouse = { x: null, y: null };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        
+        // Handle resizing
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles(); 
+        }
+
+        window.addEventListener('resize', resize);
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5; // slow speed
+                this.vy = (Math.random() - 0.5) * 0.5; 
+                this.size = Math.random() * 1.5 + 0.5;
+                this.color = 'rgba(0, 242, 255, 0.3)'; // Cyan accent
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Bounce off edges
+                if (this.x < 0 || this.x > width) this.vx *= -1;
+                if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                // Mouse interaction
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const distance = Math.sqrt(dx*dx + dy*dy);
+
+                if (distance < mouseDistance) {
+                    const forceDirectionX = dx / distance;
+                    const forceDirectionY = dy / distance;
+                    const force = (mouseDistance - distance) / mouseDistance;
+                    const directionX = forceDirectionX * force * 1; // Pushing factor
+                    const directionY = forceDirectionY * force * 1;
+
+                    // Move away from mouse gently
+                    this.x -= directionX;
+                    this.y -= directionY;
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+
+                // Connect particles
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(0, 242, 255, ${1 - distance/connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+
+        // Init
+        resize();
+        animate();
+    }
 });

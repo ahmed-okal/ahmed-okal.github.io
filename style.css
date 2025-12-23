@@ -121,7 +121,7 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 20px 40px;
+    padding: 10px 40px; /* Reduced from 20px */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -133,27 +133,110 @@ ul {
 }
 
 .navbar.scrolled {
-    padding: 15px 40px;
+    padding: 8px 40px; /* Reduced from 15px */
     background: rgba(13, 17, 23, 0.95);
     box-shadow: 0 5px 20px rgba(0,0,0,0.2);
 }
 
-.logo {
-    font-family: var(--font-heading);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--text-primary);
-    letter-spacing: 1px;
+/* Navigation Update */
+.logo-wrapper {
+    width: 60px; /* Increased back to 60px as requested */
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--accent-primary);
+    box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
     cursor: pointer;
-    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    transition: transform 0.3s;
 }
 
-.nav-links {
-    display: flex;
+.logo-wrapper:hover {
+    transform: scale(1.1);
+}
+
+.nav-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Navbar links adjustment */
+.nav-links li a {
+    font-size: 1rem;
+}
+
+/* Skills */
+.skill-icon-svg {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+/* Project Cards - Image Scroll Effect */
+.project-img-container {
+    height: 350px; /* Standard mobile app height */
+    overflow: hidden;
+    position: relative;
+    background: #000;
+}
+
+/* Specific adjustment for desktop/POS images */
+.desktop-img-container {
+    height: 250px; /* Smaller height for landscape/desktop images */
+}
+
+.project-img {
+    width: 100%;
+    height: auto; /* Allow auto height so it scrolls */
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 3s ease-in-out; /* Slow scroll on hover */
+}
+
+/* Scroll image to bottom of itself on hover */
+.project-card:hover .project-img {
+    /* Translate Y needs to be dynamic based on image height difference, 
+       but for pure CSS we approximate or use large negative value. 
+       Use -100% + container height. 
+       calc(-100% + 350px) for standard.
+    */
+    transform: translateY(calc(350px - 100%)); 
+}
+
+/* Overwrite scroll for desktop container */
+.project-card:hover .desktop-img-container .project-img {
+    transform: translateY(calc(250px - 100%));
+}
+
+.project-content {
+    background: var(--bg-card);
+    z-index: 1;
+    position: relative;
+}
+
+/* Contact Section Grid Update */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns */
     gap: 30px;
 }
+
+
+@media screen and (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .nav-links a {
     color: var(--text-secondary);
@@ -244,33 +327,27 @@ ul {
     overflow: hidden;
 }
 
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
 .hero-bg-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.05) 0%, rgba(13, 17, 23, 0) 70%);
+    background: radial-gradient(circle at 50% 50%, rgba(0, 242, 255, 0.02) 0%, rgba(13, 17, 23, 0.8) 100%);
     z-index: -1;
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-    filter: blur(150px);
-    opacity: 0.1;
-    z-index: -2;
-    animation: floatingOrb 10s infinite alternate;
-}
-
-@keyframes floatingOrb {
-    0% { transform: translate(-30%, -30%); }
-    100% { transform: translate(30%, 30%); }
-}
+/* Removed floatingOrb animation as we use canvas now */
 
 .greeting {
     font-size: 1.5rem;
@@ -307,8 +384,10 @@ ul {
 .cta-buttons {
     display: flex;
     gap: 20px;
+    justify-content: center; /* Centering Fixed */
 }
 
+/* ... btn styles same ... */
 .btn {
     padding: 12px 30px;
     border-radius: 30px;
@@ -392,53 +471,13 @@ ul {
     background: var(--bg-card);
 }
 
-.placeholder-profile {
+.profile-img {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5rem;
-    font-weight: 800;
-    color: rgba(255,255,255,0.1);
-    background: linear-gradient(135deg, #1f242d, #161b22);
+    object-fit: cover;
 }
 
-.about-text p {
-    color: var(--text-secondary);
-    margin-bottom: 20px;
-    font-size: 1.05rem;
-}
-
-.about-text strong {
-    color: var(--accent-primary);
-}
-
-.stats-row {
-    display: flex;
-    gap: 40px;
-    margin-top: 30px;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1;
-}
-
-.stat-label {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-top: 5px;
-}
-
-/* Skills Section */
+/* ... skill styles same ... */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -475,7 +514,8 @@ ul {
     color: var(--text-primary);
 }
 
-/* Projects Section */
+
+/* Projects Section (Refined) */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -499,39 +539,14 @@ ul {
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-.project-img-container {
-    height: 200px;
-    overflow: hidden;
-    position: relative;
-}
-
-.project-img-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    transition: transform 0.5s ease;
-}
-
-.project-card:hover .project-img-placeholder {
-    transform: scale(1.05);
-}
-
-.gradient-1 { background: linear-gradient(135deg, #1f4037, #99f2c8); }
-.gradient-2 { background: linear-gradient(135deg, #667db6, #0082c8, #0082c8, #667db6); }
-.gradient-3 { background: linear-gradient(135deg, #f12711, #f5af19); }
-.gradient-4 { background: linear-gradient(135deg, #8E2DE2, #4A00E0); }
+/* .project-img rules handled in upper block for scrolling effect */
 
 .project-content {
     padding: 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    border-top: 1px solid var(--border-color); /* Separator */
 }
 
 .project-content h3 {
@@ -563,30 +578,35 @@ ul {
     border: 1px solid rgba(0, 242, 255, 0.2);
 }
 
-.project-links {
+.project-links-expanded {
     display: flex;
     gap: 15px;
+    margin-top: auto;
 }
 
-.link-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
+.store-badge {
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: var(--text-secondary);
-    transition: all 0.3s;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
-.link-btn:hover {
+.store-badge:hover {
     background: var(--accent-primary);
     color: #000;
     border-color: var(--accent-primary);
 }
 
 /* Experience Section */
+/* ... */
+
 .timeline {
     position: relative;
     max-width: 800px;
@@ -668,8 +688,20 @@ ul {
 /* Contact Section */
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+}
+
+@media screen and (max-width: 900px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .contact-card {
@@ -680,6 +712,7 @@ ul {
     border: 1px solid var(--border-color);
     transition: var(--transition-medium);
 }
+
 
 .contact-card:hover {
     transform: translateY(-5px) scale(1.02);

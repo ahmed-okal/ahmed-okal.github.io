@@ -27,7 +27,9 @@
 
     <!-- Navigation (Simple Floating or Fixed) -->
     <nav class="navbar">
-        <div class="logo">AO</div>
+        <div class="logo-wrapper">
+            <img src="assets/me/me.jpeg" alt="AO" class="nav-logo-img">
+        </div>
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -51,19 +53,25 @@
         </ul>
     </div>
 
+    <!-- Background Animation Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
+        <!-- <div class="hero-bg-overlay"></div> Removed to let canvas show, or keep for darkening -->
         <div class="hero-bg-overlay"></div>
         <div class="container hero-content">
             <h2 class="greeting" data-aos="fade-up" data-aos-delay="100">Hello, I'm</h2>
-            <h1 class="name-headline glitch-effect" data-text="Ahmed Okal" data-aos="fade-up" data-aos-delay="200">Ahmed Okal</h1>
+            <div class="name-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="name-headline">Ahmed Okal</h1>
+            </div>
             <h3 class="subtitle" data-aos="fade-up" data-aos-delay="300">Senior Flutter & Mobile Developer</h3>
             <p class="description" data-aos="fade-up" data-aos-delay="400">
                 I build high-performance mobile apps with clean architecture and beautiful UI.
             </p>
             <div class="cta-buttons" data-aos="fade-up" data-aos-delay="500">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <a href="assets/cv/ahmed_okal_flutter.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
             </div>
         </div>
         
@@ -84,9 +92,7 @@
             <div class="about-grid">
                 <div class="about-image" data-aos="fade-right">
                     <div class="img-wrapper">
-                        <!-- Placeholder for Profile Image -->
-                        <div class="placeholder-profile">AO</div>
-                        <!-- <img src="path/to/profile.jpg" alt="Ahmed Okal"> -->
+                        <img src="assets/me/me.jpeg" alt="Ahmed Okal" class="profile-img">
                     </div>
                 </div>
                 <div class="about-text" data-aos="fade-left">
@@ -130,11 +136,17 @@
             <div class="skills-grid">
                 <!-- Skill Cards -->
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fab fa-flutter skill-icon" style="color: #42A5F5;"></i>
+                    <!-- SVG Flutter Icon -->
+                    <div class="skill-icon-svg">
+                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                             <path fill="#42A5F5" d="M57.6 15.8L35.2 38.2 13.5 16.5 57.6 15.8zM57.6 15.8L80.1 38.2 57.6 60.7 35.2 38.2 57.6 15.8z"/>
+                             <path fill="#42A5F5" d="M13.5 67.5L35.2 45.8 57.6 68.3 35.9 90 13.5 67.5z"/>
+                             <path fill="#0D47A1" fill-opacity="0.2" d="M35.2 45.8l22.4 22.5 22.5-22.5-22.5-22.5z"/>
+                         </svg>
+                    </div>
                     <h3>Flutter</h3>
                 </div>
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="custom-icon dart-icon"></div> <!-- Using CSS for Dart or FontAwesome fallback -->
                     <i class="fas fa-code skill-icon" style="color: #00B4AB;"></i>
                     <h3>Dart</h3>
                 </div>
@@ -143,13 +155,36 @@
                     <h3>Android SDK</h3>
                 </div>
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="250">
-                    <i class="fab fa-android skill-icon" style="color: #7f52ff;"></i> <!-- Kotlin placeholder icon color -->
+                    <i class="fab fa-android skill-icon" style="color: #7f52ff;"></i> 
                     <h3>Kotlin</h3>
                 </div>
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
                     <i class="fab fa-swift skill-icon" style="color: #F05138;"></i>
                     <h3>Swift</h3>
                 </div>
+                
+                <!-- NEW SKILLS -->
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="310">
+                    <i class="fas fa-cubes skill-icon" style="color: #FF5252;"></i>
+                    <h3>Bloc</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="320">
+                    <i class="fas fa-box-open skill-icon" style="color: #FFC107;"></i>
+                    <h3>Provider</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="330">
+                    <i class="fas fa-exchange-alt skill-icon" style="color: #9C27B0;"></i>
+                    <h3>GetX</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="340">
+                    <i class="fas fa-water skill-icon" style="color: #03A9F4;"></i>
+                    <h3>Riverpod</h3>
+                </div>
+                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="345">
+                    <i class="fas fa-sitemap skill-icon" style="color: #E91E63;"></i>
+                    <h3>OOP</h3>
+                </div>
+
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="350">
                     <i class="fas fa-network-wired skill-icon" style="color: #FFCA28;"></i>
                     <h3>REST APIs</h3>
@@ -165,6 +200,31 @@
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
                     <i class="fab fa-git-alt skill-icon" style="color: #F1502F;"></i>
                     <h3>Git / GitHub</h3>
+                </div>
+                <!-- Others -->
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="600">
+                    <i class="fas fa-database skill-icon" style="color: #336791;"></i>
+                    <h3>Local Storage</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="650">
+                    <i class="fas fa-vial skill-icon" style="color: #9C27B0;"></i>
+                    <h3>Testing</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="700">
+                    <i class="fas fa-infinity skill-icon" style="color: #2196F3;"></i>
+                    <h3>CI/CD</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="750">
+                    <i class="fab fa-figma skill-icon" style="color: #F24E1E;"></i>
+                    <h3>Figma</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="800">
+                    <i class="fab fa-jira skill-icon" style="color: #0052CC;"></i>
+                    <h3>Jira</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="850">
+                    <i class="fas fa-rocket skill-icon" style="color: #FF5722;"></i>
+                    <h3>Postman</h3>
                 </div>
             </div>
         </div>
@@ -183,10 +243,7 @@
                 <!-- Project 1: Taaly -->
                 <div class="project-card" data-aos="fade-up">
                     <div class="project-img-container">
-                        <!-- Using a solid color or gradient placeholder if image not found, but ready for img -->
-                        <div class="project-img-placeholder gradient-1">
-                            <span>Taaly</span>
-                        </div>
+                        <img src="assets/taaly/taaly1.png" alt="Taaly App" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Taaly</h3>
@@ -196,9 +253,13 @@
                             <span>Dart</span>
                             <span>Mobile</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn" title="iOS App Store"><i class="fab fa-app-store-ios"></i></a>
-                            <a href="#" class="link-btn" title="Google Play"><i class="fab fa-google-play"></i></a>
+                        <div class="project-links-expanded">
+                            <a href="https://apps.apple.com/eg/app/taaly/id6451190448" target="_blank" class="store-badge">
+                                <i class="fab fa-app-store-ios"></i> App Store
+                            </a>
+                            <a href="https://play.google.com/store/search?q=Taaly&c=apps" target="_blank" class="store-badge">
+                                <i class="fab fa-google-play"></i> Google Play
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -206,9 +267,7 @@
                 <!-- Project 2: Sellfora -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-img-container">
-                        <div class="project-img-placeholder gradient-2">
-                            <span>Sellfora</span>
-                        </div>
+                        <img src="assets/sellfora/sellfora.jpeg" alt="Sellfora App" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Sellfora</h3>
@@ -218,9 +277,13 @@
                             <span>E-commerce</span>
                             <span>API</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn" title="iOS App Store"><i class="fab fa-app-store-ios"></i></a>
-                            <a href="#" class="link-btn" title="Google Play"><i class="fab fa-google-play"></i></a>
+                        <div class="project-links-expanded">
+                            <a href="https://apps.apple.com/eg/app/sellfora-%D8%B3%D9%8A%D9%84%D9%81%D9%88%D8%B1%D8%A7/id6476144510" target="_blank" class="store-badge">
+                                <i class="fab fa-app-store-ios"></i> App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=app.sellfora.hybapps" target="_blank" class="store-badge">
+                                <i class="fab fa-google-play"></i> Google Play
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -228,9 +291,7 @@
                 <!-- Project 3: Tasweer -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-img-container">
-                        <div class="project-img-placeholder gradient-3">
-                            <span>Tasweer | تصوير</span>
-                        </div>
+                        <img src="assets/tasweer/tasweer.jpeg" alt="Tasweer App" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>Tasweer | تصوير</h3>
@@ -240,19 +301,21 @@
                             <span>Services</span>
                             <span>Booking</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn" title="iOS App Store"><i class="fab fa-app-store-ios"></i></a>
-                            <a href="#" class="link-btn" title="Google Play"><i class="fab fa-google-play"></i></a>
+                        <div class="project-links-expanded">
+                            <a href="https://apps.apple.com/eg/app/%D8%AA%D8%B5%D9%88%D9%8A%D8%B1-tasweer/id6648791379" target="_blank" class="store-badge">
+                                <i class="fab fa-app-store-ios"></i> App Store
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=com.tasweer.app&pcampaignid=web_share" target="_blank" class="store-badge">
+                                <i class="fab fa-google-play"></i> Google Play
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4: POS Cube -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-img-container">
-                        <div class="project-img-placeholder gradient-4">
-                            <span>POS Cube</span>
-                        </div>
+                    <div class="project-img-container desktop-img-container">
+                        <img src="pos_cube/pos_cube1.jpeg" alt="POS Cube" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>POS Cube</h3>
@@ -262,8 +325,10 @@
                             <span>Desktop</span>
                             <span>Tablet</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></a>
+                        <div class="project-links-expanded">
+                            <a href="https://pos.absat-erp.com/" target="_blank" class="store-badge">
+                                <i class="fas fa-external-link-alt"></i> View Details
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -360,7 +425,7 @@
                         <i class="fab fa-facebook-f"></i>
                     </div>
                     <h3>Facebook</h3>
-                    <p>Ahmed Okal</p>
+                    <p>Ahmed M. Okal</p>
                 </a>
 
                 <a href="https://www.instagram.com/ahmed_m_okal/" target="_blank" class="contact-card" data-aos="flip-up" data-aos-delay="500">
