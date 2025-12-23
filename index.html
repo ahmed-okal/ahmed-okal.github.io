@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Okal | Senior Mobile Developer</title>
+    <meta name="description" content="Senior Flutter & Mobile Developer building high-performance mobile apps with clean architecture and beautiful UI.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation (Simple Floating or Fixed) -->
+    <nav class="navbar">
+        <div class="logo">AO</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+    
+    <div class="mobile-nav-overlay">
+        <span class="close-menu">&times;</span>
+        <ul class="mobile-nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg-overlay"></div>
+        <div class="container hero-content">
+            <h2 class="greeting" data-aos="fade-up" data-aos-delay="100">Hello, I'm</h2>
+            <h1 class="name-headline glitch-effect" data-text="Ahmed Okal" data-aos="fade-up" data-aos-delay="200">Ahmed Okal</h1>
+            <h3 class="subtitle" data-aos="fade-up" data-aos-delay="300">Senior Flutter & Mobile Developer</h3>
+            <p class="description" data-aos="fade-up" data-aos-delay="400">
+                I build high-performance mobile apps with clean architecture and beautiful UI.
+            </p>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="500">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+        </div>
+        
+        <div class="scroll-down-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down bounce"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="img-wrapper">
+                        <!-- Placeholder for Profile Image -->
+                        <div class="placeholder-profile">AO</div>
+                        <!-- <img src="path/to/profile.jpg" alt="Ahmed Okal"> -->
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <p>
+                        I am a <strong>Senior Flutter & Mobile Developer</strong> dealing with both Android & iOS platforms. 
+                        With extensive experience in building real production apps, I focus on delivering scalable, 
+                        performance-optimized solutions using <strong>Clean Architecture</strong>.
+                    </p>
+                    <p>
+                        My passion lies in crafting fluid, intuitive user experiences that not only look great but work seamlessly.
+                        I thrive in complex environments and enjoy solving challenging technical problems.
+                    </p>
+                    
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Years Exp.</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">20+</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Skill Cards -->
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fab fa-flutter skill-icon" style="color: #42A5F5;"></i>
+                    <h3>Flutter</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="custom-icon dart-icon"></div> <!-- Using CSS for Dart or FontAwesome fallback -->
+                    <i class="fas fa-code skill-icon" style="color: #00B4AB;"></i>
+                    <h3>Dart</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fab fa-android skill-icon" style="color: #3DDC84;"></i>
+                    <h3>Android SDK</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="250">
+                    <i class="fab fa-android skill-icon" style="color: #7f52ff;"></i> <!-- Kotlin placeholder icon color -->
+                    <h3>Kotlin</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fab fa-swift skill-icon" style="color: #F05138;"></i>
+                    <h3>Swift</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="350">
+                    <i class="fas fa-network-wired skill-icon" style="color: #FFCA28;"></i>
+                    <h3>REST APIs</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-fire skill-icon" style="color: #FFA611;"></i>
+                    <h3>Firebase</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="450">
+                    <i class="fas fa-layer-group skill-icon" style="color: #4CAF50;"></i>
+                    <h3>Clean Arc</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fab fa-git-alt skill-icon" style="color: #F1502F;"></i>
+                    <h3>Git / GitHub</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="projects-grid">
+                
+                <!-- Project 1: Taaly -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-img-container">
+                        <!-- Using a solid color or gradient placeholder if image not found, but ready for img -->
+                        <div class="project-img-placeholder gradient-1">
+                            <span>Taaly</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Taaly</h3>
+                        <p>A comprehensive language learning mobile application available on iOS and Android.</p>
+                        <div class="tech-stack">
+                            <span>Flutter</span>
+                            <span>Dart</span>
+                            <span>Mobile</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-btn" title="iOS App Store"><i class="fab fa-app-store-ios"></i></a>
+                            <a href="#" class="link-btn" title="Google Play"><i class="fab fa-google-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Sellfora -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder gradient-2">
+                            <span>Sellfora</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Sellfora</h3>
+                        <p>An innovative E-commerce mobile application delivering seamless shopping experiences.</p>
+                        <div class="tech-stack">
+                            <span>Flutter</span>
+                            <span>E-commerce</span>
+                            <span>API</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-btn" title="iOS App Store"><i class="fab fa-app-store-ios"></i></a>
+                            <a href="#" class="link-btn" title="Google Play"><i class="fab fa-google-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Tasweer -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder gradient-3">
+                            <span>Tasweer | تصوير</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Tasweer | تصوير</h3>
+                        <p>Photography service app connecting photographers with clients.</p>
+                        <div class="tech-stack">
+                            <span>Flutter</span>
+                            <span>Services</span>
+                            <span>Booking</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-btn" title="iOS App Store"><i class="fab fa-app-store-ios"></i></a>
+                            <a href="#" class="link-btn" title="Google Play"><i class="fab fa-google-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: POS Cube -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-img-container">
+                        <div class="project-img-placeholder gradient-4">
+                            <span>POS Cube</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>POS Cube</h3>
+                        <p>Advanced POS system working across Desktop, Web, and Tablets/iPads.</p>
+                        <div class="tech-stack">
+                            <span>Flutter Web</span>
+                            <span>Desktop</span>
+                            <span>Tablet</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="link-btn" title="View Details"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Highlights & Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="timeline-content">
+                        <h3>Real Production Apps</h3>
+                        <p>Delivered multiple high-quality apps to App Store and Google Play, serving real users.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="timeline-content">
+                        <h3>Cross-Platform Mastery</h3>
+                        <p>Expertise in creating seamless experiences across iOS, Android, Web, and Desktop using Flutter.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-icon"><i class="fas fa-building"></i></div>
+                    <div class="timeline-content">
+                        <h3>Enterprise Solutions</h3>
+                        <p>Building scalable, maintainable architecture for complex enterprise-level systems.</p>
+                    </div>
+                </div>
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <div class="timeline-content">
+                        <h3>Performance Focused</h3>
+                        <p>Optimizing for 60fps performance, battery efficiency, and smooth animations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Feel free to reach out for collaborations or just a friendly hello.</p>
+            </div>
+            
+            <div class="contact-grid">
+                <a href="mailto:ahmedokal6996@gmail.com" class="contact-card" data-aos="flip-up">
+                    <div class="icon-box">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>ahmedokal6996@gmail.com</p>
+                </a>
+                
+                <a href="https://wa.me/+201068609852" target="_blank" class="contact-card" data-aos="flip-up" data-aos-delay="100">
+                    <div class="icon-box">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>+20 10 686 098 52</p>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/ahmed-okal/" target="_blank" class="contact-card" data-aos="flip-up" data-aos-delay="200">
+                    <div class="icon-box">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Ahmed Okal</p>
+                </a>
+                
+                <a href="https://github.com/ahmed-okal" target="_blank" class="contact-card" data-aos="flip-up" data-aos-delay="300">
+                    <div class="icon-box">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>ahmed-okal</p>
+                </a>
+
+                <a href="https://www.facebook.com/ahmedm.okal.71/" target="_blank" class="contact-card" data-aos="flip-up" data-aos-delay="400">
+                    <div class="icon-box">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Ahmed Okal</p>
+                </a>
+
+                <a href="https://www.instagram.com/ahmed_m_okal/" target="_blank" class="contact-card" data-aos="flip-up" data-aos-delay="500">
+                    <div class="icon-box">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>@ahmed_m_okal</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ahmed Okal. Built with passion & code.</p>
+                <div class="social-links-mini">
+                    <a href="https://github.com/ahmed-okal" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ahmed-okal/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
