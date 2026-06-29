@@ -50,33 +50,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // GSAP Advanced Animations (Optional extra flair)
     if (typeof gsap !== 'undefined') {
-        
-        // Hover effect for project cards using GSAP
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        projectCards.forEach(card => {
-            const img = card.querySelector('.project-img');
-            
-            card.addEventListener('mouseenter', () => {
-                gsap.to(card, { y: -10, duration: 0.3, ease: 'power2.out' });
-                if(img) gsap.to(img, { scale: 1.05, duration: 0.5 });
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
-                if(img) gsap.to(img, { scale: 1, duration: 0.5 });
-            });
-        });
-
-        // Skill icon floating animation (subtle)
-        const skillIcons = document.querySelectorAll('.skill-icon');
+        // Skill icon and SVG floating animation (subtle)
+        const skillIcons = document.querySelectorAll('.skill-icon, .skill-icon-svg');
         skillIcons.forEach(icon => {
             // Random start delay
             const delay = Math.random() * 2;
             
             gsap.to(icon, {
-                y: -5,
-                duration: 1.5,
+                y: -6,
+                duration: 2.0,
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
@@ -139,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
             constructor() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.5; // slow speed
-                this.vy = (Math.random() - 0.5) * 0.5; 
-                this.size = Math.random() * 1.5 + 0.5;
-                this.color = 'rgba(0, 242, 255, 0.3)'; // Cyan accent
+                this.vx = (Math.random() - 0.5) * 0.35; // even slower speed
+                this.vy = (Math.random() - 0.5) * 0.35; 
+                this.size = Math.random() * 2.0 + 0.5; // slightly larger variance
+                this.color = Math.random() > 0.5 ? 'rgba(139, 92, 246, 0.25)' : 'rgba(6, 182, 212, 0.25)'; // Blend Violet & Cyan
             }
 
             update() {
@@ -201,7 +183,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     if (distance < connectionDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 242, 255, ${1 - distance/connectionDistance})`;
+                        const alpha = (1 - distance / connectionDistance) * 0.12;
+                        ctx.strokeStyle = i % 2 === 0 ? `rgba(139, 92, 246, ${alpha})` : `rgba(6, 182, 212, ${alpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);

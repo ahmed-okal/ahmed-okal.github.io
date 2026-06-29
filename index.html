@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ahmed Okal | Senior Mobile Developer</title>
-    <meta name="description" content="Senior Flutter & Mobile Developer building high-performance mobile apps with clean architecture and beautiful UI.">
+    <title>Ahmed Okal | Flutter & Mobile Developer</title>
+    <meta name="description" content="Flutter & Mobile Developer building high-performance mobile apps with clean architecture and beautiful UI.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,8 +27,11 @@
 
     <!-- Navigation (Simple Floating or Fixed) -->
     <nav class="navbar">
-        <div class="logo-wrapper">
-            <img src="assets/me/me.jpeg" alt="AO" class="nav-logo-img">
+        <div class="logo-area" onclick="window.location.href='#hero'">
+            <div class="logo-wrapper">
+                <img src="assets/me/me.jpeg" alt="AO" class="nav-logo-img">
+            </div>
+            <span class="logo-text">Ahmed<span>Okal</span></span>
         </div>
         <ul class="nav-links">
             <li><a href="#hero">Home</a></li>
@@ -65,13 +68,13 @@
             <div class="name-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <h1 class="name-headline">Ahmed Okal</h1>
             </div>
-            <h3 class="subtitle" data-aos="fade-up" data-aos-delay="300">Senior Flutter & Mobile Developer</h3>
+            <h3 class="subtitle" data-aos="fade-up" data-aos-delay="300">Flutter & Mobile Developer</h3>
             <p class="description" data-aos="fade-up" data-aos-delay="400">
                 I build high-performance mobile apps with clean architecture and beautiful UI.
             </p>
             <div class="cta-buttons" data-aos="fade-up" data-aos-delay="500">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="assets/cv/ahmed_okal_flutter.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
+                <a href="assets/cv/Ahmed_Okal_Flutter.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Download CV</a>
             </div>
         </div>
         
@@ -97,28 +100,49 @@
                 </div>
                 <div class="about-text" data-aos="fade-left">
                     <p>
-                        I am a <strong>Senior Flutter & Mobile Developer</strong> dealing with both Android & iOS platforms. 
-                        With extensive experience in building real production apps, I focus on delivering scalable, 
-                        performance-optimized solutions using <strong>Clean Architecture</strong>.
+                        I am a <strong>Flutter & Mobile Developer</strong> specializing in building high-performance cross-platform mobile apps for Android & iOS. With 3+ years of professional remote experience, I focus on delivering scalable, robust solutions using <strong>Clean Architecture (MVVM/Repository Patterns)</strong> and advanced state management.
                     </p>
                     <p>
-                        My passion lies in crafting fluid, intuitive user experiences that not only look great but work seamlessly.
-                        I thrive in complex environments and enjoy solving challenging technical problems.
+                        I have a proven record of owning the full mobile development lifecycle—from system design and CI/CD pipelines to successful App Store and Google Play releases. I enjoy integrating advanced features like <strong>Generative AI / Voice Agents</strong> and optimizing app performance for smooth, fluid user experiences.
                     </p>
+                    
+                    <!-- Key Highlights from CV -->
+                    <div class="about-highlights">
+                        <div class="highlight-card">
+                            <i class="fas fa-brain highlight-icon"></i>
+                            <div>
+                                <h4>Generative AI Voice</h4>
+                                <p>Architected real-time Voice Coach tools with on-device audio pipelines.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <i class="fas fa-tachometer-alt highlight-icon"></i>
+                            <div>
+                                <h4>Performance Tuning</h4>
+                                <p>Eliminated UI thread blockages, reducing app load times by up to 30%.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-card">
+                            <i class="fas fa-shield-alt highlight-icon"></i>
+                            <div>
+                                <h4>Enterprise Clean Code</h4>
+                                <p>Strict separation of concerns, reducing production bugs by 40% via robust tests.</p>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="stats-row">
                         <div class="stat-item">
-                            <span class="stat-number">5+</span>
+                            <span class="stat-number">3+</span>
                             <span class="stat-label">Years Exp.</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">Projects</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">100%</span>
                             <span class="stat-label">Satisfaction</span>
                         </div>
+                    </div>
+                    <div class="about-cv-cta" style="margin-top: 35px; display: flex; justify-content: flex-start;">
+                        <a href="cv.html" class="btn btn-outline"><i class="fas fa-file-alt"></i> View Digital & Printable CV</a>
                     </div>
                 </div>
             </div>
@@ -200,6 +224,38 @@
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="500">
                     <i class="fab fa-git-alt skill-icon" style="color: #F1502F;"></i>
                     <h3>Git / GitHub</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="520">
+                    <i class="fas fa-brain skill-icon" style="color: #ec4899;"></i>
+                    <h3>AI Features</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="540">
+                    <i class="fas fa-shield-alt skill-icon" style="color: #00E676;"></i>
+                    <h3>App Security</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="550">
+                    <i class="fas fa-bell skill-icon" style="color: #FF9800;"></i>
+                    <h3>Push Notifications</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="560">
+                    <i class="fas fa-link skill-icon" style="color: #00E5FF;"></i>
+                    <h3>Deep Linking</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="570">
+                    <i class="fas fa-map-marked-alt skill-icon" style="color: #4CAF50;"></i>
+                    <h3>Maps & Location</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="580">
+                    <i class="fas fa-cloud-upload-alt skill-icon" style="color: #2196F3;"></i>
+                    <h3>App Publishing</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="590">
+                    <i class="fas fa-credit-card skill-icon" style="color: #FFB300;"></i>
+                    <h3>Payment Gateways</h3>
+                </div>
+                <div class="skill-card" data-aos="zoom-in" data-aos-delay="595">
+                    <i class="fas fa-plug skill-icon" style="color: #E040FB;"></i>
+                    <h3>Platform Channels</h3>
                 </div>
                 <!-- Others -->
                 <div class="skill-card" data-aos="zoom-in" data-aos-delay="600">
@@ -315,7 +371,7 @@
                 <!-- Project 4: POS Cube -->
                 <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-img-container desktop-img-container">
-                        <img src="pos_cube/pos_cube1.jpeg" alt="POS Cube" class="project-img">
+                        <img src="assets/pos_cube/pos_cube1.jpeg" alt="POS Cube" class="project-img">
                     </div>
                     <div class="project-content">
                         <h3>POS Cube</h3>

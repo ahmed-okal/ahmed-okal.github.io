@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Okal | CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #050508;
+            --container-bg: rgba(255, 255, 255, 0.02);
+            --text-primary: #ffffff;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --accent: #8b5cf6;
+            --accent-secondary: #06b6d4;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.5;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-container {
+            max-width: 900px;
+            width: 100%;
+            background-color: var(--container-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        /* Printable / Floating Action Button */
+        .print-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            padding: 8px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Header block */
+        .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .header-left h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #ffffff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header-left h2 {
+            font-size: 1.3rem;
+            color: var(--accent-secondary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 15px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-info a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .contact-info a:hover {
+            color: var(--accent-secondary);
+        }
+
+        .header-right {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+            flex-shrink: 0;
+        }
+
+        .header-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CV Sections */
+        .cv-section {
+            margin-bottom: 30px;
+        }
+
+        .cv-section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        p.summary-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        /* Technical Skills Table */
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .skills-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .skills-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .skills-table td {
+            padding: 10px 12px;
+            vertical-align: top;
+        }
+
+        .skills-table td.cat {
+            font-weight: 600;
+            color: var(--text-primary);
+            width: 180px;
+        }
+
+        .skills-table td.stack {
+            color: var(--text-secondary);
+        }
+
+        /* Experience Items */
+        .exp-item {
+            margin-bottom: 25px;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+
+        .exp-title h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .exp-title h3 span {
+            color: var(--accent-secondary);
+            font-weight: 500;
+        }
+
+        .exp-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        .exp-meta .loc {
+            color: var(--text-secondary);
+            margin-bottom: 2px;
+        }
+
+        .exp-bullets {
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .exp-bullets li {
+            margin-bottom: 5px;
+            text-align: justify;
+        }
+
+        .exp-bullets li strong {
+            color: var(--text-primary);
+        }
+
+        /* Projects Table */
+        .projects-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .projects-table tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .projects-table td {
+            padding: 12px;
+            vertical-align: top;
+        }
+
+        .projects-table td.name {
+            font-weight: 600;
+            color: var(--text-primary);
+            width: 200px;
+        }
+
+        .projects-table td.name span {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .projects-table td.desc {
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .projects-table td.desc a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-right: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Side-by-side grids for bottom items */
+        .cv-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .list-unstyled {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .list-unstyled li {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .list-unstyled li i {
+            color: var(--accent);
+            margin-top: 4px;
+            font-size: 0.8rem;
+        }
+
+        /* Print styling styles override */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+                padding: 0 !important;
+            }
+
+            .cv-container {
+                max-width: 100% !important;
+                background-color: white !important;
+                border: none !important;
+                border-radius: 0 !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+            }
+
+            .print-btn, .back-btn {
+                display: none !important;
+            }
+
+            :root {
+                --text-primary: #000000 !important;
+                --text-secondary: #222222 !important;
+                --text-muted: #555555 !important;
+                --accent: #000000 !important;
+                --accent-secondary: #000000 !important;
+                --border-color: #dddddd !important;
+                --container-bg: white !important;
+            }
+
+            .header-left h1 {
+                background: none !important;
+                -webkit-text-fill-color: black !important;
+                color: black !important;
+            }
+
+            .header-left h2 {
+                color: black !important;
+            }
+
+            .header-right {
+                border-color: #555 !important;
+                box-shadow: none !important;
+            }
+
+            .contact-info a {
+                color: #222 !important;
+            }
+
+            .cv-section-title {
+                border-bottom: 1px solid #333 !important;
+                color: black !important;
+            }
+
+            .skills-table tr {
+                border-bottom: 1px solid #eee !important;
+            }
+
+            .projects-table tr {
+                border-bottom: 1px solid #eee !important;
+            }
+        }
+
+        /* Mobile layout styling */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .cv-container {
+                padding: 30px 20px;
+            }
+
+            .cv-header {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .header-right {
+                width: 100px;
+                height: 100px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-table td {
+                display: block;
+                padding: 6px 0;
+            }
+
+            .skills-table td.cat {
+                width: 100%;
+                font-weight: 700;
+            }
+
+            .exp-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .exp-meta {
+                text-align: left;
+            }
+
+            .projects-table td {
+                display: block;
+                padding: 8px 0;
+            }
+
+            .projects-table td.name {
+                width: 100%;
+            }
+
+            .cv-grid-2 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .print-btn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                top: auto;
+                z-index: 100;
+            }
+
+            .back-btn {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                top: auto;
+                z-index: 100;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="back-btn" onclick="window.location.href='index.html'"><i class="fas fa-arrow-left"></i> Home</button>
+    <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> Print CV</button>
+
+    <div class="cv-container">
+        <!-- Header -->
+        <header class="cv-header">
+            <div class="header-left">
+                <h1>Ahmed Okal</h1>
+                <h2>Flutter & Mobile Developer</h2>
+                <div class="contact-info">
+                    <span><i class="fas fa-map-marker-alt"></i> Egypt</span>
+                    <a href="tel:+201068609852"><i class="fas fa-phone"></i> +20 10 686 098 52</a>
+                    <a href="mailto:ahmedokal6996@gmail.com"><i class="fas fa-envelope"></i> ahmedokal6996@gmail.com</a>
+                    <a href="https://github.com/ahmed-okal" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/ahmed-okal/" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <img src="assets/me/me.jpeg" alt="Ahmed Okal">
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Professional Summary</h2>
+            <p class="summary-text">
+                Flutter & Mobile Developer with 3+ years of international remote experience shipping production-grade, cross-platform mobile applications. Specializes in generative AI/Voice Agent integration, Clean Architecture, and advanced state management. Proven record owning the full development lifecycle — from system design to live App Store and Google Play releases.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Technical Skills</h2>
+            <table class="skills-table">
+                <tr>
+                    <td class="cat">Languages & Core</td>
+                    <td class="stack">Dart · Kotlin · Swift · OOP · SOLID Principles</td>
+                </tr>
+                <tr>
+                    <td class="cat">Frameworks</td>
+                    <td class="stack">Flutter (Mobile, Desktop, Web) · Android SDK · iOS</td>
+                </tr>
+                <tr>
+                    <td class="cat">State Management</td>
+                    <td class="stack">BLoC / Cubit · GetX · Provider · Riverpod</td>
+                </tr>
+                <tr>
+                    <td class="cat">Architecture</td>
+                    <td class="stack">Clean Architecture · MVVM · MVC · Repository Pattern · GetIt DI</td>
+                </tr>
+                <tr>
+                    <td class="cat">Backend & APIs</td>
+                    <td class="stack">REST · GraphQL · gRPC · Firebase · Supabase · Firestore</td>
+                </tr>
+                <tr>
+                    <td class="cat">Databases & Storage</td>
+                    <td class="stack">SQLite · Hive · Shared Preferences · GetStorage</td>
+                </tr>
+                <tr>
+                    <td class="cat">DevOps & Testing</td>
+                    <td class="stack">Unit / Widget / Integration Tests · Git · GitHub Actions · Jenkins · Jira</td>
+                </tr>
+                <tr>
+                    <td class="cat">UI/UX & Localization</td>
+                    <td class="stack">Figma · Material / Cupertino · Flutter Intl (ARB) · Responsive UI</td>
+                </tr>
+                <tr>
+                    <td class="cat">Integrations</td>
+                    <td class="stack">Google Maps · Push Notifications · Payment Gateways · Apple Pay · QR Code · ASO</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Professional Experience</h2>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Mobile Application Developer (Flutter) — <span>Taaly</span></h3>
+                    </div>
+                    <div class="exp-meta">
+                        <div class="loc">Netherlands (Remote)</div>
+                        <div>September 2025 – Present</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Architected and shipped the <strong>generative AI Voice Coach</strong>—enabling real-time, natively rendered speech practice and language feedback via on-device audio pipelines.</li>
+                    <li>Owned the end-to-end release pipeline, <strong>launching and scaling the app</strong> across both Google Play and the Apple App Store.</li>
+                    <li>Overhauled rendering and state management pipelines, delivering measurably <strong>smoother frame rates, lower battery draw</strong>, and faster initial load states.</li>
+                    <li>Engineered with a scalable localization infrastructure, handling automated translation-asset generation across multiple language tracks.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Mobile Application Developer (Flutter) — <span>Business Cube</span></h3>
+                    </div>
+                    <div class="exp-meta">
+                        <div class="loc">Saudi Arabia (Remote)</div>
+                        <div>February 2025 – February 2026</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Architected enterprise-grade cross-platform applications from scratch using <strong>Clean Architecture</strong> with strict separation of concerns across data, domain, and presentation layers.</li>
+                    <li>Reduced production bugs by <strong>40%</strong> through comprehensive unit and widget test suites alongside robust RESTful API and local caching integration.</li>
+                    <li>Maintain reliable offline-first data flows across multi-module business applications serving enterprise clients.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Mobile Application Developer (Flutter) — <span>Dream Soft</span></h3>
+                    </div>
+                    <div class="exp-meta">
+                        <div class="loc">Tanta, Egypt</div>
+                        <div>May 2024 – February 2025</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Led end-to-end development of e-commerce and fitness apps, driving a <strong>+25% uplift in user retention</strong> through targeted UX improvements.</li>
+                    <li>Engineered complex reactive data flows—including live QR scanning and real-time admin updates—using Cubit and GetX state management.</li>
+                </ul>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div class="exp-title">
+                        <h3>Mobile Application Developer (Flutter) — <span>Olspark</span></h3>
+                    </div>
+                    <div class="exp-meta">
+                        <div class="loc">Tanta, Egypt</div>
+                        <div>February 2024 – May 2024</div>
+                    </div>
+                </div>
+                <ul class="exp-bullets">
+                    <li>Diagnosed and eliminated UI thread blockages across legacy modules, achieving a <strong>30% reduction in application load times</strong>.</li>
+                    <li>Delivered pixel-perfect, fully responsive UI components through close collaboration with designers on Figma mockups.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Selected Projects -->
+        <section class="cv-section">
+            <h2 class="cv-section-title">Selected Projects</h2>
+            <table class="projects-table">
+                <tr>
+                    <td class="name">Taaly<span>Language Learning & AI</span></td>
+                    <td class="desc">
+                        Generative AI conversational companion for voice-based language training. Real-time audio capturing, optimized state management, and smooth UI updates for user immersion.
+                        <br>
+                        <a href="https://play.google.com/store/search?q=Taaly&c=apps" target="_blank"><i class="fab fa-google-play"></i> Play Store</a>
+                        <a href="https://apps.apple.com/eg/app/taaly/id6451190448" target="_blank"><i class="fab fa-app-store-ios"></i> App Store</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">POS Cube<span>Desktop & Tablet</span></td>
+                    <td class="desc">
+                        Odoo-integrated restaurant POS. Clean Architecture, offline-first operation, and multi-module invoice printer communication.
+                        <br>
+                        <a href="https://pos.absat-erp.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Website</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">Active Deer<span>Fintech / Sports</span></td>
+                    <td class="desc">
+                        Sports club booking platform. Integrated Moyasar payment gateway, Apple Pay, and secure credit card transactions.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">Tasweer & Sellfora<span>E-Commerce</span></td>
+                    <td class="desc">
+                        Dual e-commerce and booking engines. Optimized user experience resulting in +25% user retention.
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Education, Certifications & Languages -->
+        <div class="cv-grid-2">
+            <section class="cv-section">
+                <h2 class="cv-section-title">Education</h2>
+                <div class="exp-item">
+                    <h3 style="font-size: 0.95rem; font-weight: 600; color: var(--text-primary);">Bachelor of Arts in Information Technology</h3>
+                    <p style="font-size: 0.85rem; color: var(--accent-secondary); margin-bottom: 2px;">Tanta University · Faculty of Arts</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">October 2020 – June 2024</p>
+                </div>
+            </section>
+
+            <section class="cv-section">
+                <h2 class="cv-section-title">Languages</h2>
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-circle"></i> <strong>Arabic</strong>: Native Speaker</li>
+                    <li><i class="fas fa-circle"></i> <strong>English</strong>: Intermediate (Professional Working Proficiency)</li>
+                </ul>
+            </section>
+        </div>
+
+        <section class="cv-section">
+            <h2 class="cv-section-title">Certifications</h2>
+            <ul class="list-unstyled" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 20px;">
+                <li><i class="fas fa-award"></i> Deep Dive into Clean Architecture in Flutter (Udemy)</li>
+                <li><i class="fas fa-award"></i> Flutter Advanced Course: Bloc & MVVM Pattern (Udemy)</li>
+                <li><i class="fas fa-award"></i> Complete Flutter & Dart Development Course (Udemy)</li>
+                <li><i class="fas fa-award"></i> Introduction to Object-Oriented Programming (Udemy)</li>
+            </ul>
+        </section>
+    </div>
+
+</body>
+</html>
